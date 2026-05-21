@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth overflow-x-hidden">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HydroFresh - Air Minum Isi Ulang Higienis & Delivery Cepat</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Inter & Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome for Premium Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        poppins: ['Poppins', 'sans-serif'],
+                    },
+                    colors: {
+                        oceanBlue: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            500: '#0ea5e9',
+                            600: '#0284c7',
+                            700: '#0369a1',
+                            800: '#075985',
+                        },
+                        freshCyan: '#22d3ee',
+                    },
+                    boxShadow: {
+                        'premium': '0 10px 30px -5px rgba(2, 132, 199, 0.1), 0 4px 6px -2px rgba(2, 132, 199, 0.05)',
+                        'hover': '0 20px 40px -5px rgba(2, 132, 199, 0.15), 0 8px 12px -2px rgba(2, 132, 199, 0.1)',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Hard overflow guard for all devices */
+        html, body {
+            overflow-x: hidden !important;
+            max-width: 100vw;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased overflow-x-hidden">
+
+    <header class="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-slate-100 transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between">
+            <!-- Brand Logo -->
+            <a href="#" class="flex items-center space-x-2 group shrink-0">
+                <div class="w-8 h-8 sm:w-10 sm:h-10 bg-oceanBlue-600 rounded-xl flex items-center justify-center text-white shadow-md shadow-oceanBlue-500/30 group-hover:scale-105 transition-transform">
+                    <i class="fa-solid fa-droplet text-base sm:text-xl animate-pulse"></i>
+                </div>
+                <span class="font-poppins font-extrabold text-xl sm:text-2xl tracking-tight text-slate-900">
+                    Hydro<span class="text-oceanBlue-600">Fresh</span>
+                </span>
+            </a>
+            
+            <!-- Desktop Links -->
+            <nav class="hidden lg:flex items-center space-x-8 text-sm font-semibold text-slate-600">
+                <a href="#fitur" class="hover:text-oceanBlue-600 transition-colors">Keunggulan</a>
+                <a href="#proses" class="hover:text-oceanBlue-600 transition-colors">Teknologi</a>
+                <a href="#cara-kerja" class="hover:text-oceanBlue-600 transition-colors">Alur Layanan</a>
+                <a href="#kalkulator" class="hover:text-oceanBlue-600 transition-colors bg-oceanBlue-50 text-oceanBlue-700 px-3 py-1.5 rounded-lg">Kalkulator Harga</a>
+                <a href="#faq" class="hover:text-oceanBlue-600 transition-colors">Tanya Jawab</a>
+            </nav>
+
+            <!-- Action Button -->
+            <div class="hidden lg:block">
+                <a href="#kalkulator" class="bg-emerald-500 hover:bg-emerald-600 text-white font-bold px-5 py-2.5 rounded-xl shadow-md shadow-emerald-500/10 hover:shadow-emerald-500/20 transition-all duration-300 hover:-translate-y-0.5 flex items-center space-x-2">
+                    <i class="fa-brands fa-whatsapp text-lg"></i>
+                    <span>Pesan Sekarang</span>
+                </a>
+            </div>
+
+            <!-- Mobile Menu Toggle -->
+            <button id="mobile-menu-btn" class="lg:hidden text-slate-700 text-2xl focus:outline-none p-2 rounded-lg hover:bg-slate-100 transition-colors" aria-label="Toggle Menu">
+                <i class="fa-solid fa-bars-staggered"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Dropdown Menu -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-white border-b border-slate-200 absolute top-16 sm:top-20 left-0 w-full shadow-lg p-6 space-y-4 z-50">
+            <a href="#fitur" class="block font-semibold text-slate-700 hover:text-oceanBlue-600">Keunggulan</a>
+            <a href="#proses" class="block font-semibold text-slate-700 hover:text-oceanBlue-600">Teknologi Filtrasi</a>
+            <a href="#cara-kerja" class="block font-semibold text-slate-700 hover:text-oceanBlue-600">Alur Layanan</a>
+            <a href="#kalkulator" class="block font-semibold text-slate-700 hover:text-oceanBlue-600">Simulasi Order & Harga</a>
+            <a href="#faq" class="block font-semibold text-slate-700 hover:text-oceanBlue-600">FAQ</a>
+            <hr class="border-slate-100">
+            <a href="#kalkulator" class="w-full bg-emerald-500 hover:bg-emerald-600 text-white py-3.5 rounded-xl font-bold flex items-center justify-center space-x-2 shadow-lg">
+                <i class="fa-brands fa-whatsapp text-xl"></i>
+                <span>Pesan Sekarang</span>
+            </a>
+        </div>
+    </header>
+
+    <section class="relative bg-gradient-to-b from-oceanBlue-50 via-white to-slate-50 overflow-hidden py-12 sm:py-16 lg:py-24">
+        <!-- Background Elements - hidden on small mobile to prevent overflow -->
+        <div class="hidden sm:block absolute top-0 right-0 w-[500px] h-[500px] bg-cyan-100 rounded-full filter blur-3xl opacity-40 -mr-48 -mt-20 pointer-events-none"></div>
+        <div class="hidden sm:block absolute bottom-10 left-0 w-[300px] h-[300px] bg-oceanBlue-100 rounded-full filter blur-3xl opacity-30 -ml-20 pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+                
+                <!-- Left Content -->
+                <div class="lg:col-span-7 space-y-6 sm:space-y-8 text-center lg:text-left">
+                    <div class="inline-flex items-center space-x-1.5 sm:space-x-2 bg-oceanBlue-100 text-oceanBlue-800 px-3 sm:px-4 py-1.5 rounded-full text-[10px] sm:text-sm font-bold tracking-wide uppercase shadow-sm">
+                        <i class="fa-solid fa-circle-check text-emerald-500 animate-ping"></i>
+                        <span>100% Steril & Bersih Teruji</span>
+                    </div>
+                    
+                    <h1 class="text-[1.65rem] leading-tight sm:text-4xl md:text-5xl lg:text-6xl font-poppins font-extrabold text-slate-900">
+                        Air Minum Segar & <br class="hidden sm:inline">
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-oceanBlue-600 to-cyan-500">Higienis, Cuma Rp 5.000!</span>
+                    </h1>
+                    
+                    <p class="text-sm sm:text-base md:text-lg text-slate-600 max-w-2xl mx-auto lg:mx-0">
+                        Usaha Isi Ulang Galon lokal terpercaya. Menghadirkan air berkualitas premium melalui sterilisasi ketat yang menjamin kesehatan keluarga Anda. Gratis ongkir & siap antar ke rumah!
+                    </p>
+
+                    <!-- Trust Badges -->
+                    <div class="grid grid-cols-3 gap-2 sm:gap-4 max-w-sm sm:max-w-md mx-auto lg:mx-0 pt-2">
+                        <div class="bg-white p-2 sm:p-3 rounded-xl border border-slate-100 text-center shadow-xs">
+                            <i class="fa-solid fa-truck-fast text-oceanBlue-500 text-lg sm:text-xl mb-1"></i>
+                            <p class="text-[10px] sm:text-[11px] font-bold text-slate-800">Antar Cepat</p>
+                        </div>
+                        <div class="bg-white p-2 sm:p-3 rounded-xl border border-slate-100 text-center shadow-xs">
+                            <i class="fa-solid fa-vial-virus text-oceanBlue-500 text-lg sm:text-xl mb-1"></i>
+                            <p class="text-[10px] sm:text-[11px] font-bold text-slate-800">Uji Steril</p>
+                        </div>
+                        <div class="bg-white p-2 sm:p-3 rounded-xl border border-slate-100 text-center shadow-xs">
+                            <i class="fa-solid fa-circle-dollar-to-slot text-oceanBlue-500 text-lg sm:text-xl mb-1"></i>
+                            <p class="text-[10px] sm:text-[11px] font-bold text-slate-800">Harga Flat</p>
+                        </div>
+                    </div>
+
+                    <div class="pt-2 sm:pt-4 flex flex-col sm:flex-row justify-center lg:justify-start gap-3 sm:gap-4">
+                        <a href="#kalkulator" class="bg-emerald-500 hover:bg-emerald-600 text-white px-6 sm:px-8 py-3.5 sm:py-4 rounded-2xl font-bold text-base sm:text-lg flex items-center justify-center space-x-2 sm:space-x-3 shadow-lg shadow-emerald-500/20 hover:shadow-emerald-500/30 transition-all duration-300 transform hover:-translate-y-1">
+                            <i class="fa-brands fa-whatsapp text-xl sm:text-2xl"></i>
+                            <span>Pesan Isi Ulang Sekarang</span>
+                        </a>
+                        <a href="#proses" class="bg-white hover:bg-slate-50 border border-slate-200 text-slate-700 px-6 sm:px-8 py-3.5 sm:py-4 rounded-2xl font-bold text-base sm:text-lg flex items-center justify-center space-x-2 shadow-sm transition-all duration-300">
+                            <span>Pelajari Kualitas Air</span>
+                            <i class="fa-solid fa-arrow-right text-sm"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-5 flex justify-center relative mt-4 lg:mt-0">
+                    <!-- Premium Glassmorphism Visual of Water Gallon -->
+                    <div class="relative w-full max-w-[280px] sm:max-w-[340px] md:max-w-[380px]">
+                        <!-- Glow effect -->
+                        <div class="absolute -inset-1 bg-gradient-to-r from-oceanBlue-500 to-cyan-500 rounded-3xl blur opacity-30 animate-pulse"></div>
+                        
+                        <!-- Main Card -->
+                        <div class="relative bg-white/80 backdrop-blur-xl p-6 sm:p-8 rounded-3xl shadow-premium border border-white/50 text-center">
+                            
+                            <!-- Real Water Gallon Image -->
+                            <div class="w-44 h-60 sm:w-52 sm:h-72 mx-auto relative flex items-center justify-center transform hover:scale-105 transition-all duration-500 cursor-pointer">
+                                <img src="assets/water_gallon.png" alt="Galon HydroFresh Asli" class="max-w-full max-h-full object-contain drop-shadow-2xl">
+                                
+                                <!-- Floating Quality Shield Badge -->
+                                <div class="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-white/95 backdrop-blur-sm rounded-xl py-1.5 px-3 text-[10px] sm:text-[11px] text-oceanBlue-700 font-bold shadow-md border border-slate-100 flex items-center whitespace-nowrap">
+                                    <i class="fa-solid fa-shield-virus mr-1 text-emerald-500"></i> Steril UV & O3
+                                </div>
+                            </div>
+
+                            <!-- Interactive Promo Banner -->
+                            <div class="mt-6 sm:mt-8 bg-sky-50 rounded-2xl p-3 sm:p-4 border border-sky-100 relative">
+                                <span class="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-oceanBlue-600 text-white text-[9px] sm:text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider whitespace-nowrap">PROMO KHUSUS</span>
+                                <p class="text-[10px] sm:text-xs text-slate-500 font-medium mt-1">Beli / Isi Ulang Minimal 2 Galon</p>
+                                <p class="text-xs sm:text-sm font-bold text-slate-800 mt-1">
+                                    <i class="fa-solid fa-truck text-emerald-500 mr-1"></i> Gratis Ongkir Langsung!
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="fitur" class="py-12 sm:py-16 lg:py-20 bg-white relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-10 sm:mb-16">
+                <span class="text-oceanBlue-600 font-bold text-xs sm:text-sm tracking-widest uppercase">MENGAPA MEMILIH KAMI?</span>
+                <h2 class="text-2xl sm:text-3xl md:text-4xl font-poppins font-extrabold text-slate-900 mt-2">Keunggulan Layanan HydroFresh</h2>
+                <p class="text-slate-500 mt-3 sm:mt-4 text-sm sm:text-base">Kami memberikan lebih dari sekadar air minum isi ulang biasa. Kesehatan dan kepuasan Anda adalah prioritas utama kami.</p>
+            </div>
+
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
+                <!-- Card 1 -->
+                <div class="bg-slate-50 p-4 sm:p-6 rounded-2xl border border-slate-100 shadow-sm hover:shadow-hover hover:-translate-y-1 transition-all duration-300 group">
+                    <div class="w-10 h-10 sm:w-12 sm:h-12 bg-sky-100 text-oceanBlue-600 rounded-xl flex items-center justify-center text-lg sm:text-xl mb-4 sm:mb-6 group-hover:bg-oceanBlue-600 group-hover:text-white transition-all duration-300">
+                        <i class="fa-solid fa-microscope"></i>
+                    </div>
+                    <h3 class="font-bold text-sm sm:text-lg text-slate-900 mb-1.5 sm:mb-2">Higienis & Steril</h3>
+                    <p class="text-slate-500 text-xs sm:text-sm leading-relaxed">Peralatan sanitasi otomatis berstandar medis untuk membilas galon dari kotoran mikroba.</p>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="bg-slate-50 p-4 sm:p-6 rounded-2xl border border-slate-100 shadow-sm hover:shadow-hover hover:-translate-y-1 transition-all duration-300 group">
+                    <div class="w-10 h-10 sm:w-12 sm:h-12 bg-sky-100 text-oceanBlue-600 rounded-xl flex items-center justify-center text-lg sm:text-xl mb-4 sm:mb-6 group-hover:bg-oceanBlue-600 group-hover:text-white transition-all duration-300">
+                        <i class="fa-solid fa-bolt"></i>
+                    </div>
+                    <h3 class="font-bold text-sm sm:text-lg text-slate-900 mb-1.5 sm:mb-2">Delivery Ekpres</h3>
+                    <p class="text-slate-500 text-xs sm:text-sm leading-relaxed">Kurir lokal terlatih siap mengantarkan galon langsung ke depan pintu Anda dengan cepat.</p>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="bg-slate-50 p-4 sm:p-6 rounded-2xl border border-slate-100 shadow-sm hover:shadow-hover hover:-translate-y-1 transition-all duration-300 group">
+                    <div class="w-10 h-10 sm:w-12 sm:h-12 bg-sky-100 text-oceanBlue-600 rounded-xl flex items-center justify-center text-lg sm:text-xl mb-4 sm:mb-6 group-hover:bg-oceanBlue-600 group-hover:text-white transition-all duration-300">
+                        <i class="fa-solid fa-stamp"></i>
+                    </div>
+                    <h3 class="font-bold text-sm sm:text-lg text-slate-900 mb-1.5 sm:mb-2">Segel & Tutup Baru</h3>
+                    <p class="text-slate-500 text-xs sm:text-sm leading-relaxed">Setiap galon diamankan dengan tutup baru yang higienis serta disegel rapat untuk menjamin kualitas.</p>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="bg-slate-50 p-4 sm:p-6 rounded-2xl border border-slate-100 shadow-sm hover:shadow-hover hover:-translate-y-1 transition-all duration-300 group">
+                    <div class="w-10 h-10 sm:w-12 sm:h-12 bg-sky-100 text-oceanBlue-600 rounded-xl flex items-center justify-center text-lg sm:text-xl mb-4 sm:mb-6 group-hover:bg-oceanBlue-600 group-hover:text-white transition-all duration-300">
+                        <i class="fa-solid fa-coins"></i>
+                    </div>
+                    <h3 class="font-bold text-sm sm:text-lg text-slate-900 mb-1.5 sm:mb-2">Paling Ekonomis</h3>
+                    <p class="text-slate-500 text-xs sm:text-sm leading-relaxed">Kualitas air setara pabrikan besar namun dengan harga isi ulang yang bersahabat untuk harian.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="proses" class="py-12 sm:py-16 lg:py-20 bg-slate-50 border-t border-b border-slate-100 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+                
+                <!-- Left Text -->
+                <div class="lg:col-span-5 space-y-4 sm:space-y-6">
+                    <span class="text-oceanBlue-600 font-bold text-xs sm:text-sm tracking-widest uppercase">TEKNOLOGI STERILISASI</span>
+                    <h2 class="text-2xl sm:text-3xl md:text-4xl font-poppins font-extrabold text-slate-900 leading-tight">Proses Pengolahan Air Higienis Kami</h2>
+                    <p class="text-slate-600 text-sm sm:text-base leading-relaxed">
+                        Kami tidak sekadar memasukkan air ke galon Anda. HydroFresh menggunakan sistem pengolahan multi-tahap modern untuk memastikan kesegaran alami bebas kuman.
+                    </p>
+                    <p class="text-xs sm:text-sm font-semibold text-slate-500">
+                        <i class="fa-solid fa-hand-pointer text-oceanBlue-500 animate-bounce mr-2"></i> Klik tahapan untuk melihat detail penjelasannya.
+                    </p>
+                </div>
+
+                <!-- Right Interactive Process Steps -->
+                <div class="lg:col-span-7 space-y-3 sm:space-y-4">
+                    <!-- Step 1 (Active by default) -->
+                    <div class="filtration-step cursor-pointer bg-white p-4 sm:p-5 rounded-2xl border-l-4 border-oceanBlue-500 shadow-xs hover:shadow-md transition-all duration-300" onclick="showFiltrationInfo(1, this)">
+                        <div class="flex items-center justify-between gap-2">
+                            <div class="flex items-center space-x-3 sm:space-x-4 min-w-0">
+                                <span class="w-8 h-8 sm:w-10 sm:h-10 bg-oceanBlue-100 text-oceanBlue-700 font-bold rounded-lg flex items-center justify-center shrink-0 text-sm sm:text-base step-num">1</span>
+                                <h3 class="font-bold text-slate-900 text-xs sm:text-sm md:text-base">Penyaringan Multi-Tahap (Carbon & Micro Filter)</h3>
+                            </div>
+                            <i class="fa-solid fa-circle-chevron-down text-oceanBlue-500 transition-transform duration-300 rotate-180 shrink-0" id="icon-step-1"></i>
+                        </div>
+                        <div class="mt-2 sm:mt-3 text-slate-600 text-xs sm:text-sm pl-11 sm:pl-14" id="desc-step-1" style="display: block;">
+                            Menghilangkan pasir, lumpur, partikel halus, serta menetralisir bau, rasa, dan sisa klorin menggunakan media karbon aktif berkualitas tinggi sehingga air terasa murni dan segar.
+                        </div>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="filtration-step cursor-pointer bg-white p-4 sm:p-5 rounded-2xl border-l-4 border-slate-200 shadow-xs hover:shadow-md transition-all duration-300" onclick="showFiltrationInfo(2, this)">
+                        <div class="flex items-center justify-between gap-2">
+                            <div class="flex items-center space-x-3 sm:space-x-4 min-w-0">
+                                <span class="w-8 h-8 sm:w-10 sm:h-10 bg-slate-100 text-slate-500 font-bold rounded-lg flex items-center justify-center shrink-0 text-sm sm:text-base step-num">2</span>
+                                <h3 class="font-bold text-slate-900 text-xs sm:text-sm md:text-base">Sterilisasi Sinar Ultraviolet (UV)</h3>
+                            </div>
+                            <i class="fa-solid fa-circle-chevron-down text-slate-300 transition-transform duration-300 shrink-0" id="icon-step-2"></i>
+                        </div>
+                        <div class="mt-2 sm:mt-3 text-slate-600 text-xs sm:text-sm pl-11 sm:pl-14 hidden" id="desc-step-2">
+                            Air dialirkan melalui reaktor khusus dengan pancaran Sinar Ultraviolet (UV) berkekuatan tinggi yang efektif merusak DNA kuman, bakteri patogen (seperti E. Coli), dan virus, menjadikannya 100% aman dikonsumsi.
+                        </div>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="filtration-step cursor-pointer bg-white p-4 sm:p-5 rounded-2xl border-l-4 border-slate-200 shadow-xs hover:shadow-md transition-all duration-300" onclick="showFiltrationInfo(3, this)">
+                        <div class="flex items-center justify-between gap-2">
+                            <div class="flex items-center space-x-3 sm:space-x-4 min-w-0">
+                                <span class="w-8 h-8 sm:w-10 sm:h-10 bg-slate-100 text-slate-500 font-bold rounded-lg flex items-center justify-center shrink-0 text-sm sm:text-base step-num">3</span>
+                                <h3 class="font-bold text-slate-900 text-xs sm:text-sm md:text-base">Ozonisasi (O3) untuk Ketahanan Air</h3>
+                            </div>
+                            <i class="fa-solid fa-circle-chevron-down text-slate-300 transition-transform duration-300 shrink-0" id="icon-step-3"></i>
+                        </div>
+                        <div class="mt-2 sm:mt-3 text-slate-600 text-xs sm:text-sm pl-11 sm:pl-14 hidden" id="desc-step-3">
+                            Pemberian molekul Ozon (O3) aktif sebelum air dikemas ke dalam galon. Berfungsi sebagai agen disinfeksi akhir dan memberikan proteksi kesegaran alami air agar tidak mudah terkontaminasi meski disimpan berminggu-minggu.
+                        </div>
+                    </div>
+
+                    <!-- Step 4 -->
+                    <div class="filtration-step cursor-pointer bg-white p-4 sm:p-5 rounded-2xl border-l-4 border-slate-200 shadow-xs hover:shadow-md transition-all duration-300" onclick="showFiltrationInfo(4, this)">
+                        <div class="flex items-center justify-between gap-2">
+                            <div class="flex items-center space-x-3 sm:space-x-4 min-w-0">
+                                <span class="w-8 h-8 sm:w-10 sm:h-10 bg-slate-100 text-slate-500 font-bold rounded-lg flex items-center justify-center shrink-0 text-sm sm:text-base step-num">4</span>
+                                <h3 class="font-bold text-slate-900 text-xs sm:text-sm md:text-base">Pembersihan & Pembilasan Steril</h3>
+                            </div>
+                            <i class="fa-solid fa-circle-chevron-down text-slate-300 transition-transform duration-300 shrink-0" id="icon-step-4"></i>
+                        </div>
+                        <div class="mt-2 sm:mt-3 text-slate-600 text-xs sm:text-sm pl-11 sm:pl-14 hidden" id="desc-step-4">
+                            Sebelum diisi air, galon kosong Anda akan disikat bagian dalam dan luarnya serta dibilas menggunakan air steril bertekanan tinggi untuk membunuh bakteri yang tertinggal di dinding galon.
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="cara-kerja" class="py-12 sm:py-16 lg:py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-10 sm:mb-16">
+                <span class="text-oceanBlue-600 font-bold text-xs sm:text-sm tracking-widest uppercase">GAMPANG BANGET</span>
+                <h2 class="text-2xl sm:text-3xl md:text-4xl font-poppins font-extrabold text-slate-900 mt-2">Bagaimana Cara Pesannya?</h2>
+                <p class="text-slate-500 mt-3 sm:mt-4 text-sm sm:text-base">Tanpa ribet keluar rumah, Anda hanya perlu memesan lewat WhatsApp Anda!</p>
+            </div>
+
+            <div class="grid sm:grid-cols-3 gap-4 sm:gap-6 lg:gap-8 relative">
+                <!-- Step 1 -->
+                <div class="bg-slate-50 p-6 sm:p-8 rounded-3xl border border-slate-100 text-center relative group">
+                    <div class="w-12 h-12 sm:w-16 sm:h-16 bg-oceanBlue-100 text-oceanBlue-700 rounded-2xl flex items-center justify-center text-xl sm:text-2xl font-black mx-auto mb-4 sm:mb-6 group-hover:bg-oceanBlue-600 group-hover:text-white transition-all duration-300">
+                        1
+                    </div>
+                    <h3 class="font-bold text-base sm:text-xl text-slate-900 mb-2 sm:mb-3">Isi Formulir Order</h3>
+                    <p class="text-slate-500 text-xs sm:text-sm leading-relaxed">
+                        Gunakan kalkulator simulasi harga di bawah untuk mengisi jumlah pesanan galon dan alamat pengantaran Anda.
+                    </p>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="bg-slate-50 p-6 sm:p-8 rounded-3xl border border-slate-100 text-center relative group">
+                    <div class="w-12 h-12 sm:w-16 sm:h-16 bg-oceanBlue-100 text-oceanBlue-700 rounded-2xl flex items-center justify-center text-xl sm:text-2xl font-black mx-auto mb-4 sm:mb-6 group-hover:bg-oceanBlue-600 group-hover:text-white transition-all duration-300">
+                        2
+                    </div>
+                    <h3 class="font-bold text-base sm:text-xl text-slate-900 mb-2 sm:mb-3">Kurir Jemput & Antar</h3>
+                    <p class="text-slate-500 text-xs sm:text-sm leading-relaxed">
+                        Kurir sigap kami akan segera datang ke rumah Anda untuk menjemput galon kosong dan menggantinya dengan galon steril baru.
+                    </p>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="bg-slate-50 p-6 sm:p-8 rounded-3xl border border-slate-100 text-center relative group">
+                    <div class="w-12 h-12 sm:w-16 sm:h-16 bg-oceanBlue-100 text-oceanBlue-700 rounded-2xl flex items-center justify-center text-xl sm:text-2xl font-black mx-auto mb-4 sm:mb-6 group-hover:bg-oceanBlue-600 group-hover:text-white transition-all duration-300">
+                        3
+                    </div>
+                    <h3 class="font-bold text-base sm:text-xl text-slate-900 mb-2 sm:mb-3">Bayar Di Tempat (COD)</h3>
+                    <p class="text-slate-500 text-xs sm:text-sm leading-relaxed">
+                        Anda melakukan pengecekan kualitas air dan segel, kemudian membayar secara tunai langsung ke kurir saat barang tiba.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="kalkulator" class="py-12 sm:py-16 lg:py-20 bg-gradient-to-br from-slate-900 via-slate-800 to-oceanBlue-950 text-white relative overflow-hidden">
+        <div class="hidden sm:block absolute top-0 right-0 w-[400px] h-[400px] bg-sky-500 rounded-full filter blur-[120px] opacity-15 pointer-events-none"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+                
+                <!-- Left Details -->
+                <div class="lg:col-span-5 space-y-4 sm:space-y-6 text-center lg:text-left">
+                    <span class="text-cyan-400 font-bold text-xs sm:text-sm tracking-widest uppercase">KALKULATOR ORDER</span>
+                    <h2 class="text-2xl sm:text-3xl md:text-4xl font-poppins font-extrabold text-white">Simulasi Total Harga</h2>
+                    <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
+                        Masukkan jumlah galon yang ingin diisi ulang untuk mengetahui biaya langsung. Sistem kami akan otomatis mengatur status promo <span class="text-cyan-400 font-semibold">Gratis Ongkir</span> jika pesanan minimal 2 galon!
+                    </p>
+
+                    <div class="bg-white/5 border border-white/10 rounded-2xl p-4 sm:p-6 text-left space-y-3 sm:space-y-4">
+                        <div class="flex items-center space-x-3 text-xs sm:text-sm text-slate-300">
+                            <i class="fa-solid fa-tags text-cyan-400 text-base sm:text-lg shrink-0"></i>
+                            <span>Harga Flat: <strong>Rp 5.000</strong> per galon.</span>
+                        </div>
+                        <div class="flex items-center space-x-3 text-xs sm:text-sm text-slate-300">
+                            <i class="fa-solid fa-truck-ramp-box text-cyan-400 text-base sm:text-lg shrink-0"></i>
+                            <span>Ongkir reguler Rp 2.000 jika hanya pesan 1 galon.</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Live Calculator Form -->
+                <div class="lg:col-span-7">
+                    <div class="bg-white text-slate-800 rounded-3xl p-5 sm:p-8 lg:p-10 shadow-2xl relative">
+                        <h3 class="text-lg sm:text-xl font-poppins font-bold text-slate-900 mb-5 sm:mb-6 flex items-center space-x-2">
+                            <i class="fa-solid fa-calculator text-oceanBlue-600"></i>
+                            <span>Formulir Pesanan Praktis</span>
+                        </h3>
+                        
+                        <div class="space-y-4 sm:space-y-5">
+                            <!-- Input Jumlah Galon -->
+                            <div>
+                                <label class="block text-xs sm:text-sm font-bold text-slate-700 mb-2">Jumlah Isi Ulang (Galon)</label>
+                                <div class="flex items-center space-x-3">
+                                    <button onclick="decrementGallons()" class="w-10 h-10 sm:w-12 sm:h-12 bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold rounded-xl flex items-center justify-center transition-all text-lg">-</button>
+                                    <input type="number" id="input-gallon" value="2" min="1" class="w-16 h-10 sm:w-20 sm:h-12 text-center border border-slate-200 rounded-xl font-bold text-base sm:text-lg focus:outline-none focus:ring-2 focus:ring-oceanBlue-500" readonly>
+                                    <button onclick="incrementGallons()" class="w-10 h-10 sm:w-12 sm:h-12 bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold rounded-xl flex items-center justify-center transition-all text-lg">+</button>
+                                </div>
+                            </div>
+
+                            <!-- Opsi Pengiriman -->
+                            <div>
+                                <label class="block text-xs sm:text-sm font-bold text-slate-700 mb-2">Jenis Pengambilan</label>
+                                <div class="grid grid-cols-2 gap-3 sm:gap-4">
+                                    <label class="border-2 border-oceanBlue-500 bg-sky-50/50 p-2.5 sm:p-3 rounded-xl flex items-center justify-center space-x-1.5 sm:space-x-2 cursor-pointer transition-all" id="label-delivery">
+                                        <input type="radio" name="shipping" value="delivery" checked onclick="updateShippingOption('delivery')" class="accent-oceanBlue-600">
+                                        <span class="text-xs sm:text-sm font-bold text-slate-700">Antar Ke Rumah</span>
+                                    </label>
+                                    <label class="border-2 border-slate-200 p-2.5 sm:p-3 rounded-xl flex items-center justify-center space-x-1.5 sm:space-x-2 cursor-pointer transition-all" id="label-pickup">
+                                        <input type="radio" name="shipping" value="pickup" onclick="updateShippingOption('pickup')" class="accent-oceanBlue-600">
+                                        <span class="text-xs sm:text-sm font-bold text-slate-700">Ambil Sendiri</span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <!-- Alamat Lengkap -->
+                            <div id="address-container">
+                                <label class="block text-xs sm:text-sm font-bold text-slate-700 mb-2">Alamat Pengiriman</label>
+                                <textarea id="input-address" placeholder="Tuliskan nama jalan, nomor rumah, atau detail patokan rumah Anda..." class="w-full border border-slate-200 rounded-xl p-3 text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-oceanBlue-500 h-20 resize-none"></textarea>
+                            </div>
+
+                            <!-- Real-time Cost Breakdown -->
+                            <div class="bg-slate-50 rounded-2xl p-3 sm:p-4 border border-slate-100 space-y-2">
+                                <div class="flex justify-between text-xs sm:text-sm text-slate-600">
+                                    <span>Biaya Pengisian (<span id="calc-qty-text">2</span> Galon):</span>
+                                    <span class="font-semibold text-slate-800" id="calc-subtotal">Rp 10.000</span>
+                                </div>
+                                <div class="flex justify-between text-xs sm:text-sm text-slate-600">
+                                    <span>Ongkos Kirim:</span>
+                                    <span class="font-semibold text-slate-800" id="calc-shipping-fee">Gratis (Promo)</span>
+                                </div>
+                                <hr class="border-slate-200">
+                                <div class="flex justify-between items-center text-slate-900 font-bold">
+                                    <span class="text-sm sm:text-base">Total Bayar (COD):</span>
+                                    <span class="text-lg sm:text-xl text-oceanBlue-600" id="calc-total">Rp 10.000</span>
+                                </div>
+                            </div>
+
+                            <!-- Dynamic CTA Button -->
+                            <button onclick="submitOrderViaWA()" class="w-full bg-emerald-500 hover:bg-emerald-600 text-white font-extrabold py-3.5 sm:py-4 rounded-2xl flex items-center justify-center space-x-2 sm:space-x-3 shadow-lg shadow-emerald-500/20 hover:shadow-emerald-500/35 transition-all duration-300 transform hover:-translate-y-0.5">
+                                <i class="fa-brands fa-whatsapp text-xl sm:text-2xl"></i>
+                                <span class="text-sm sm:text-base">Kirim Pesanan Sekarang</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="faq" class="py-12 sm:py-16 lg:py-20 bg-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-10 sm:mb-16">
+                <span class="text-oceanBlue-600 font-bold text-xs sm:text-sm tracking-widest uppercase">TANYA JAWAB</span>
+                <h2 class="text-2xl sm:text-3xl md:text-4xl font-poppins font-extrabold text-slate-900 mt-2">Sering Ditanyakan</h2>
+                <p class="text-slate-500 mt-3 text-sm sm:text-base">Jawaban atas keraguan Anda mengenai kualitas dan layanan isi ulang HydroFresh.</p>
+            </div>
+
+            <div class="space-y-3 sm:space-y-4">
+                <!-- FAQ item 1 -->
+                <div class="border border-slate-100 rounded-2xl bg-slate-50 hover:bg-slate-100/50 transition-all duration-200">
+                    <button class="w-full flex items-center justify-between p-4 sm:p-6 font-bold text-slate-800 text-left focus:outline-none text-sm sm:text-base gap-3" onclick="toggleFAQ(this)">
+                        <span>Apakah ada minimal pembelian untuk antar gratis (Free Delivery)?</span>
+                        <i class="fa-solid fa-plus text-oceanBlue-500 transition-transform shrink-0"></i>
+                    </button>
+                    <div class="faq-answer max-h-0 overflow-hidden transition-all duration-300">
+                        <div class="p-4 sm:p-6 pt-0 text-xs sm:text-sm text-slate-600 border-t border-slate-200/50 mt-2 leading-relaxed">
+                            Betul sekali! Promo Gratis Ongkir berlaku untuk pesanan minimal <strong>2 galon</strong> dalam satu kali pengiriman. Untuk pesanan hanya 1 galon, akan dikenakan ongkos kirim flat yang sangat murah, yaitu sebesar Rp 2.000.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ item 2 -->
+                <div class="border border-slate-100 rounded-2xl bg-slate-50 hover:bg-slate-100/50 transition-all duration-200">
+                    <button class="w-full flex items-center justify-between p-4 sm:p-6 font-bold text-slate-800 text-left focus:outline-none text-sm sm:text-base gap-3" onclick="toggleFAQ(this)">
+                        <span>Apakah merek galon non-HydroFresh juga dilayani untuk ditukar?</span>
+                        <i class="fa-solid fa-plus text-oceanBlue-500 transition-transform shrink-0"></i>
+                    </button>
+                    <div class="faq-answer max-h-0 overflow-hidden transition-all duration-300">
+                        <div class="p-4 sm:p-6 pt-0 text-xs sm:text-sm text-slate-600 border-t border-slate-200/50 mt-2 leading-relaxed">
+                            Bisa! Kami menerima berbagai jenis dan merek galon plastik standar ukuran 19 liter (seperti merek Aqua, VIT, dll.) untuk diisi ulang, asalkan galon tidak dalam kondisi pecah atau retak demi keamanan penyimpanan.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ item 3 -->
+                <div class="border border-slate-100 rounded-2xl bg-slate-50 hover:bg-slate-100/50 transition-all duration-200">
+                    <button class="w-full flex items-center justify-between p-4 sm:p-6 font-bold text-slate-800 text-left focus:outline-none text-sm sm:text-base gap-3" onclick="toggleFAQ(this)">
+                        <span>Bagaimana Anda menjamin kualitas kebersihan air?</span>
+                        <i class="fa-solid fa-plus text-oceanBlue-500 transition-transform shrink-0"></i>
+                    </button>
+                    <div class="faq-answer max-h-0 overflow-hidden transition-all duration-300">
+                        <div class="p-4 sm:p-6 pt-0 text-xs sm:text-sm text-slate-600 border-t border-slate-200/50 mt-2 leading-relaxed">
+                            Kualitas air kami diuji secara berkala oleh laboratorium dinas kesehatan daerah setempat. Kami menggunakan sistem filtrasi berlapis serta sinar UV pembunuh kuman steril, yang mana penanganannya dilakukan secara profesional demi kepuasan pelanggan.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ item 4 -->
+                <div class="border border-slate-100 rounded-2xl bg-slate-50 hover:bg-slate-100/50 transition-all duration-200">
+                    <button class="w-full flex items-center justify-between p-4 sm:p-6 font-bold text-slate-800 text-left focus:outline-none text-sm sm:text-base gap-3" onclick="toggleFAQ(this)">
+                        <span>Apakah melayani pesanan di luar jam operasional?</span>
+                        <i class="fa-solid fa-plus text-oceanBlue-500 transition-transform shrink-0"></i>
+                    </button>
+                    <div class="faq-answer max-h-0 overflow-hidden transition-all duration-300">
+                        <div class="p-4 sm:p-6 pt-0 text-xs sm:text-sm text-slate-600 border-t border-slate-200/50 mt-2 leading-relaxed">
+                            Pemesanan via WhatsApp dapat dilakukan 24 jam penuh. Namun, untuk proses pengantaran kurir hanya akan dijadwalkan dan dikirimkan saat jam operasional toko berlangsung.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-slate-900 text-slate-400 py-10 sm:py-16 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid sm:grid-cols-2 md:grid-cols-3 gap-8 sm:gap-12">
+            <!-- Brand Info -->
+            <div class="space-y-4 sm:col-span-2 md:col-span-1">
+                <a href="#" class="flex items-center space-x-2 text-white font-bold text-xl sm:text-2xl tracking-wide font-poppins">
+                    <div class="w-8 h-8 bg-oceanBlue-600 rounded-lg flex items-center justify-center text-white">
+                        <i class="fa-solid fa-droplet text-sm"></i>
+                    </div>
+                    <span>Hydro<span class="text-oceanBlue-500">Fresh</span></span>
+                </a>
+                <p class="text-xs sm:text-sm leading-relaxed">
+                    Penyedia air minum isi ulang galon modern, sehat, bersih, steril, dan dijamin ekonomis demi menjaga hidrasi seluruh masyarakat sekitar.
+                </p>
+            </div>
+
+            <!-- Jam Kerja -->
+            <div class="space-y-4">
+                <h4 class="text-white font-semibold text-base sm:text-lg">Jam Operasional Kurir</h4>
+                <ul class="text-xs sm:text-sm space-y-3">
+                    <li class="flex justify-between border-b border-slate-800 pb-2">
+                        <span>Senin - Sabtu:</span>
+                        <span class="text-white font-medium">07.00 - 20.00 WIB</span>
+                    </li>
+                    <li class="flex justify-between border-b border-slate-800 pb-2">
+                        <span>Minggu & Hari Libur:</span>
+                        <span class="text-white font-medium">08.00 - 16.00 WIB</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Kontak Toko -->
+            <div class="space-y-4">
+                <h4 class="text-white font-semibold text-base sm:text-lg">Hubungi Kami</h4>
+                <ul class="text-xs sm:text-sm space-y-3">
+                    <li class="flex items-start space-x-3">
+                        <i class="fa-solid fa-location-dot text-oceanBlue-500 mt-0.5 shrink-0"></i>
+                        <span>Jl. Insinyur Sutami, Pagedangan Udik, Kec. Kronjo, Kabupaten Tangerang, Banten 15550</span>
+                    </li>
+                    <li class="flex items-center space-x-3">
+                        <i class="fa-solid fa-phone text-oceanBlue-500 shrink-0"></i>
+                        <span>+62 857-1007-3247</span>
+                    </li>
+                    <li class="flex items-center space-x-3">
+                        <i class="fa-solid fa-envelope text-oceanBlue-500 shrink-0"></i>
+                        <span>cs@hydrofresh.my.id</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-8 sm:mt-12 pt-6 sm:pt-8 border-t border-slate-800 text-center text-[10px] sm:text-xs">
+            <p>&copy; 2026 HydroFresh. Hak Cipta Dilindungi. Dibuat dengan cinta untuk kesehatan Anda.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Logika Navbar Mobile Toggle
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            const icon = menuBtn.querySelector('i');
+            if (mobileMenu.classList.contains('hidden')) {
+                icon.className = 'fa-solid fa-bars-staggered';
+            } else {
+                icon.className = 'fa-solid fa-xmark';
+            }
+        });
+
+        // Event listener saat link mobile diklik, tutup dropdown
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                menuBtn.querySelector('i').className = 'fa-solid fa-bars-staggered';
+            });
+        });
+
+        // Logika Penampil Detail Filtrasi Interaktif
+        function showFiltrationInfo(stepNumber, element) {
+            document.querySelectorAll('.filtration-step').forEach(step => {
+                step.classList.remove('border-oceanBlue-500');
+                step.classList.add('border-slate-200');
+                step.querySelector('.step-num')?.classList.remove('bg-oceanBlue-100', 'text-oceanBlue-700');
+                step.querySelector('.step-num')?.classList.add('bg-slate-100', 'text-slate-500');
+                step.querySelector('i').className = 'fa-solid fa-circle-chevron-down text-slate-300 shrink-0';
+            });
+
+            for (let i = 1; i <= 4; i++) {
+                document.getElementById(`desc-step-${i}`).style.display = 'none';
+            }
+
+            element.classList.remove('border-slate-200');
+            element.classList.add('border-oceanBlue-500');
+            const numBadge = element.querySelector('.step-num');
+            if (numBadge) {
+                numBadge.classList.remove('bg-slate-100', 'text-slate-500');
+                numBadge.classList.add('bg-oceanBlue-100', 'text-oceanBlue-700');
+            }
+            element.querySelector('i').className = 'fa-solid fa-circle-chevron-down text-oceanBlue-500 rotate-180 shrink-0';
+
+            document.getElementById(`desc-step-${stepNumber}`).style.display = 'block';
+        }
+
+        // Logika Formulir Kalkulator Harga dan Pengiriman
+        let gallonCount = 2;
+        let shippingOption = 'delivery';
+
+        function updateCalculator() {
+            document.getElementById('input-gallon').value = gallonCount;
+            document.getElementById('calc-qty-text').innerText = gallonCount;
+
+            const pricePerGallon = 5000;
+            const subtotal = gallonCount * pricePerGallon;
+            let shippingFee = 0;
+
+            if (shippingOption === 'delivery') {
+                if (gallonCount >= 2) {
+                    shippingFee = 0;
+                    document.getElementById('calc-shipping-fee').innerText = "Gratis (Promo)";
+                    document.getElementById('calc-shipping-fee').className = "font-semibold text-emerald-500";
+                } else {
+                    shippingFee = 2000;
+                    document.getElementById('calc-shipping-fee').innerText = "Rp 2.000";
+                    document.getElementById('calc-shipping-fee').className = "font-semibold text-slate-800";
+                }
+                document.getElementById('address-container').style.display = 'block';
+            } else {
+                shippingFee = 0;
+                document.getElementById('calc-shipping-fee').innerText = "Ambil Sendiri";
+                document.getElementById('calc-shipping-fee').className = "font-semibold text-slate-500";
+                document.getElementById('address-container').style.display = 'none';
+            }
+
+            const total = subtotal + shippingFee;
+
+            document.getElementById('calc-subtotal').innerText = "Rp " + subtotal.toLocaleString('id-ID');
+            document.getElementById('calc-total').innerText = "Rp " + total.toLocaleString('id-ID');
+        }
+
+        function incrementGallons() {
+            gallonCount++;
+            updateCalculator();
+        }
+
+        function decrementGallons() {
+            if (gallonCount > 1) {
+                gallonCount--;
+                updateCalculator();
+            }
+        }
+
+        function updateShippingOption(option) {
+            shippingOption = option;
+            
+            const deliveryLabel = document.getElementById('label-delivery');
+            const pickupLabel = document.getElementById('label-pickup');
+
+            if (option === 'delivery') {
+                deliveryLabel.className = "border-2 border-oceanBlue-500 bg-sky-50/50 p-2.5 sm:p-3 rounded-xl flex items-center justify-center space-x-1.5 sm:space-x-2 cursor-pointer transition-all";
+                pickupLabel.className = "border-2 border-slate-200 p-2.5 sm:p-3 rounded-xl flex items-center justify-center space-x-1.5 sm:space-x-2 cursor-pointer transition-all";
+            } else {
+                pickupLabel.className = "border-2 border-oceanBlue-500 bg-sky-50/50 p-2.5 sm:p-3 rounded-xl flex items-center justify-center space-x-1.5 sm:space-x-2 cursor-pointer transition-all";
+                deliveryLabel.className = "border-2 border-slate-200 p-2.5 sm:p-3 rounded-xl flex items-center justify-center space-x-1.5 sm:space-x-2 cursor-pointer transition-all";
+            }
+
+            updateCalculator();
+        }
+
+        // Generate WA message & Redirect
+        function submitOrderViaWA() {
+            const phoneNumber = "6285710073247";
+            const address = document.getElementById('input-address').value.trim();
+            const totalBayar = document.getElementById('calc-total').innerText;
+            const subtotal = document.getElementById('calc-subtotal').innerText;
+            const shippingFeeText = document.getElementById('calc-shipping-fee').innerText;
+
+            if (shippingOption === 'delivery' && address === '') {
+                alert('Silakan isi alamat pengiriman terlebih dahulu untuk pesanan antar ke rumah.');
+                return;
+            }
+
+            let message = `Halo HydroFresh, saya ingin memesan isi ulang air galon:\n\n`;
+            message += `*Detail Pesanan:*\n`;
+            message += `- Jumlah Galon: ${gallonCount} Galon\n`;
+            message += `- Opsi Pengambilan: ${shippingOption === 'delivery' ? 'Antar Ke Rumah' : 'Ambil Sendiri'}\n`;
+            
+            if (shippingOption === 'delivery') {
+                message += `- Alamat Pengiriman: ${address}\n`;
+            }
+            
+            message += `\n*Rincian Biaya:*\n`;
+            message += `- Harga Isi Ulang: ${subtotal}\n`;
+            message += `- Ongkos Kirim: ${shippingFeeText}\n`;
+            message += `- Total Bayar: *${totalBayar}*\n\n`;
+            message += `Mohon pesanan saya segera diproses. Terima kasih!`;
+
+            const encodedMessage = encodeURIComponent(message);
+            const waUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+            window.open(waUrl, '_blank');
+        }
+
+        // Accordion FAQ Toggler
+        function toggleFAQ(element) {
+            const answer = element.nextElementSibling;
+            const icon = element.querySelector('i');
+            
+            const isOpen = answer.style.maxHeight && answer.style.maxHeight !== '0px';
+            
+            document.querySelectorAll('.faq-answer').forEach(faqAns => {
+                faqAns.style.maxHeight = '0px';
+                const faqBtn = faqAns.previousElementSibling;
+                if (faqBtn) {
+                    const otherIcon = faqBtn.querySelector('i');
+                    if (otherIcon) {
+                        otherIcon.className = 'fa-solid fa-plus text-oceanBlue-500 transition-transform shrink-0';
+                    }
+                }
+            });
+            
+            if (!isOpen) {
+                answer.style.maxHeight = answer.scrollHeight + 'px';
+                icon.className = 'fa-solid fa-minus text-oceanBlue-500 transition-transform shrink-0';
+            }
+        }
+
+        // Initialize calculator UI on first load
+        window.addEventListener('DOMContentLoaded', () => {
+            updateCalculator();
+        });
+    </script>
+</body>
+</html>
